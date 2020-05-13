@@ -16,11 +16,11 @@ def play_hangman():
     secret_word = []  # variable used to later make the blanks (______)
 
     for x in range(len(word)):  # adds _ as many times as needed to the secret word
-        secret_word.append('_')
+        secret_word.append(' _ ')
 
     while lives > 0:
         print('')  # to add a blank space to prevent clutter
-        print(secret_word)
+        print(*secret_word, sep="")
         print('Lives left: ' + str(lives))
         print('Guess a letter (type "help" to see what you\'ve already guessed'
               ' or "guess answer" to have one shot to guess (if it\'s wrong it\'s game over!)).')
@@ -28,7 +28,7 @@ def play_hangman():
         guessed_letter = guessed_letter.lower()  # makes it lowercase
 
         if guessed_letter == 'help':  # extra credit part 1 (determine if help was typed)
-            print(guessed_characters)
+            print(*guessed_characters, sep=', ')
             continue
         elif guessed_letter == "guess answer":  # extra credit part 2 (determines if guess answer was typed)
             print('')
@@ -60,9 +60,9 @@ def play_hangman():
             print('Letter not found')
             lives = lives - 1
 
-        if '_' not in secret_word:  # determines when the puzzle is solved
+        if ' _ ' not in secret_word:  # determines when the puzzle is solved
             print('')
-            print(secret_word)
+            print(*secret_word, sep="")
             print("Word guessed, you've won!")
             play_again()
 
