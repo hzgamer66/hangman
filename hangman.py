@@ -24,36 +24,38 @@ def play_hangman():
         print('Guess a letter (type "help" to see what you\'ve already guessed'
               ' or "guess answer" to have one shot to guess (if it\'s wrong it\'s game over!)).')
         guessed_letter = input()
+        guessed_letter = guessed_letter.lower()  # makes it lowercase
 
-        if guessed_letter.lower() == 'help':  # extra credit part 1 (determine if help was typed)
+        if guessed_letter == 'help':  # extra credit part 1 (determine if help was typed)
             print(guessed_characters)
             continue
-        elif guessed_letter.lower() == "guess answer":  # extra credit part 2 (determines if guess answer was typed)
+        elif guessed_letter == "guess answer":  # extra credit part 2 (determines if guess answer was typed)
             print('')
             print('What do you think the answer is?')
             answer_guess = input()
-            if answer_guess.lower() == word:
+            answer_guess = answer_guess.lower()
+            if answer_guess == word:
                 print('')
                 print('You guessed correctly!')
                 play_again()
-            elif answer_guess.lower() != word:
+            elif answer_guess != word:
                 print('')
                 print('Your guess is incorrect. Game over!')
                 play_again()
-        elif guessed_letter.lower() not in alphabet:  # verifies that the input is a valid option
+        elif guessed_letter not in alphabet:  # verifies that the input is a valid option
             print('Invalid character.')
             continue
-        elif guessed_letter.lower() in guessed_characters:  # verifies that input has not already been guessed
+        elif guessed_letter in guessed_characters:  # verifies that input has not already been guessed
             print('You have already guessed that character.')
             continue
 
         guessed_characters.append(guessed_letter)  # adds letter to list of already guessed letters
 
-        if guessed_letter.lower() in word:  # if the letter is in the word
+        if guessed_letter in word:  # if the letter is in the word
             for y in range(len(word)):
                 if word[y] == guessed_letter.lower():  # determines where in the word the letter is used
                     secret_word[y] = guessed_letter.lower()  # replaces that location in secret_word with letter
-        elif guessed_letter.lower() not in word:  # if the letter is NOT in the word
+        elif guessed_letter not in word:  # if the letter is NOT in the word
             print('Letter not found')
             lives = lives - 1
 
