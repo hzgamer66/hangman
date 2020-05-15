@@ -39,10 +39,12 @@ def play_hangman():
                 print('')
                 print('You guessed correctly!')
                 play_again()
+                break
             elif answer_guess != word:
                 print('')
                 print('Your guess is incorrect. Game over!')
                 play_again()
+                break
         elif guessed_letter not in alphabet:  # verifies that the input is a valid option
             print('Invalid character.')
             continue
@@ -65,6 +67,7 @@ def play_hangman():
             print(*secret_word, sep="")
             print("Word guessed, you've won!")
             play_again()
+            break
 
     if lives <= 0:  # if you run out of lives
         print('')
@@ -78,7 +81,7 @@ def play_again():  # asks if you want to play again or not
         play_again_response = input().lower()  # Yes -> yes and No -> no, etc.
         if play_again_response == 'yes':
             print('New game!')
-            play_hangman()  # play another game
+            break
         elif play_again_response == 'no':
             sys.exit()  # leave
         else:
@@ -86,4 +89,5 @@ def play_again():  # asks if you want to play again or not
 
 
 # start!
-play_hangman()
+while True:
+    play_hangman()
