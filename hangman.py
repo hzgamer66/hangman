@@ -46,7 +46,7 @@ def play_hangman():
                 print('Your guess is incorrect. Game over!')
                 play_again()
                 break
-        elif guessed_letter == "exit game":
+        elif guessed_letter == "exit game":  # extension that I added myself (option to quit the game at any time)
             print("Quitting...")
             sys.exit()
         elif guessed_letter not in alphabet:  # verifies that the input is a valid option
