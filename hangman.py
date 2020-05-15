@@ -23,7 +23,8 @@ def play_hangman():
         print(*secret_word, sep="")
         print('Lives left: ' + str(lives))
         print('Guess a letter (type "help" to see what you\'ve already guessed'
-              ' or "guess answer" to have one shot to guess (if it\'s wrong it\'s game over!)).')
+              ' or "guess answer" to have one shot to guess (if it\'s wrong it\'s game over!) or '
+              '"exit game" to quit).')
         guessed_letter = input()
         guessed_letter = guessed_letter.lower()  # makes it lowercase
 
@@ -37,7 +38,7 @@ def play_hangman():
             answer_guess = answer_guess.lower()
             if answer_guess == word:
                 print('')
-                print('You guessed correctly!')
+                print("Word guessed, you've won!")
                 play_again()
                 break
             elif answer_guess != word:
@@ -45,6 +46,9 @@ def play_hangman():
                 print('Your guess is incorrect. Game over!')
                 play_again()
                 break
+        elif guessed_letter == "exit game":
+            print("Quitting...")
+            sys.exit()
         elif guessed_letter not in alphabet:  # verifies that the input is a valid option
             print('Invalid character.')
             continue
