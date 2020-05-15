@@ -1,7 +1,7 @@
 import random, sys
 
 word_list = ['integer', 'string', 'boolean', 'float', 'double', 'character', 'set',
-             'dictionary', 'list', 'binary', 'value',]  # the words
+             'dictionary', 'list', 'binary', 'value']  # the words
 
 alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u',
             'v', 'w', 'x', 'y', 'z']  # the allowed characters
